@@ -1,6 +1,6 @@
 # JavaScript 공부하기
 
-> 1일차 
+> [이 링크](https://learnjs.vlpt.us/basics/02-variables.html)에서 제공해주는 내용을 하나씩 하나씩 차례로 공부할 것임! 
 
 
 
