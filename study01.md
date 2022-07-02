@@ -62,7 +62,7 @@ console.log(value); // 결과: 7
 let cookie = 5;
 let cookie = 9;
 
-SyntaxError: /src/index.js: Identifier 'cookie' has already been declared (16:4)
+SyntaxError: /src/index.js: Identifier 'cookie' has already been declared (16:4) // 결과
 ```
 
 - 단, __다른 블록 범위 내에서는 동일한 이름을 사용 가능__하긴 함. 이에 대해서는 추후에~
@@ -83,7 +83,7 @@ SyntaxError: /src/index.js: Identifier 'cookie' has already been declared (16:4)
     const num = 55;
     num = 60;
     
-    TypeError: "num" is read-only
+    TypeError: "num" is read-only // 결과
     ```
 
 - 변수와 마찬가지로 한 번 선언된 이름을 재활용하여 선언할 수 없다!
@@ -146,7 +146,7 @@ __4. null과 undefined__
     let dream;
     console.log(dream);
     
-    undefined
+    undefined // 결과
     ```
 
   - `dream`이라는 변수를 선언하긴 했지만, 값을 지정해주지는 않았기 때문에 console.log로 값을 띄운다면 undefined라고 뜨게 된다. 
@@ -155,15 +155,117 @@ __4. null과 undefined__
 
 
 
+#### 03. 연산자
+
+- 연산자는 프로그래밍 언어에서 특정 연산을 하도록 하는 문자.
 
 
 
+##### (1) 산술 연산자 : 사칙연산 수행
+
+- `+` : 덧셈
+
+- `-` : 뺄셈
+
+- `*` : 곱셈
+
+- `/` : 나눗셈
+
+- `++` : 특정 변수에 1을 바로 더해줌
+
+  - ```javascript
+    let num = 1;
+    num++;
+    console.log(num);
+    
+    2 // 결과
+    ```
+
+  - ```javascript
+    let n = 1;
+    console.log(n++); // 결과: 1
+    console.log(++n); // 결과: 3
+    ```
+
+  - 위처럼 `++` 을 변수 앞 혹은 뒤에 위치시켰을 때, 각각 결과가 다르다. 첫 번째 경우처럼 __`++`을 변수 뒤__에 쓰고 console.log 명령어를 사용하면 변수에 1을 더하기 바로 __직전의 값__을 보여주고, __`++`을 변수 앞__에 쓰고 log를 찍어보면 1을 __더한 다음의 값__을 보여준다.
+
+- `--` : 특정 값에 1을 바로 뺀다. 사용법은 위와 동일.
 
 
 
+##### (2) 대입 연산자
+
+- 특정값에 연산을 한 값을 바로 설정할 때 사용
+
+- 다음과 같이 사용 가능
+
+  - ```javascript
+    let number = 5;
+    number += 5;
+    console.log(number); // 결과: 10
+    
+    number -= 5;
+    console.log(number); // 결과: 5
+    
+    number *= 2;
+    console.log(number); // 결과: 10
+    
+    number /= 2;
+    console.log(number); // 결과: 5
 
 
 
+##### (3) 논리 연산자
+
+- 논리 연산자는 bool 타입을 위함. 주로 if 문에서 사용됨.
+
+- 총 3가지가 있음.
+
+  - `!` : NOT 의미. true와 false를 반대로 바꿔주는 역할.
+
+  - `&&` : AND 의미. 양쪽의 값이 모두 true일 때에만 결과물이 true
+
+    - ```javascript
+      const a = true && true;
+      console.log(a); // 결과: true
+      
+      let f = false && false
+      f = false && true;
+      f = true && false;
+      // 세 가지 결과 모두 false
+      ```
+
+  - `||` : OR 의미. 양쪽의 값 중 하나라도 true라면 결과물이 true.
+
+- __연산 순서__: 사칙연산에 순서가 있듯이, 논리 연산자에도 순서가 존재. 다음과 같다. 
+
+  - NOT -> AND -> OR
+
+  - ```javascript
+    const value = !((true && false) || (true && false) || !false);
+    
+    console.log(value); // 결과: false
+    ```
+
+
+
+##### (4) 비교 연산자
+
+- 두 값을 비교할 때 사용.
+
+- __두 값이 일치하는지 확인__ : `===`
+
+  - ```javascript
+    const a = 1;
+    const b = 1;
+    
+    const equals = a === b;
+    console.log(equals); // 결과: true
+    ```
+  
+  - 참고: `==` 로도 비교는 가능하나, 숫자 1과 문자 '1'을 동일한 값으로 간주하며, 0과 false, null과 undefined도 같은 값으로 본다. 즉, __`==`로는 타입 검사를 할 수 없다.__
+  
+- __두 값이 일치하지 않는지 확인__ : 
 
 
 
